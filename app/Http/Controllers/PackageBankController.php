@@ -66,7 +66,7 @@ class PackageBankController extends Controller
     public function edit(PackageBank $packageBank)
     {
         //
-        return view('admin.package_banks.edit', compact('packageBank'));
+        return view('admin.banks.edit', compact('packageBank'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PackageBankController extends Controller
         
         });
 
-        return redirect->route('admin.package_banks.index');
+        return redirect()->route('admin.package_banks.index');
     }
 
     /**

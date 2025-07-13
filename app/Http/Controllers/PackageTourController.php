@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePackageTourRequest;
+use App\Http\Requests\UpdatePackageTourRequest;
 use App\Models\Category;
 use App\Models\PackageTour;
 use Illuminate\Http\Request;
@@ -36,33 +37,31 @@ class PackageTourController extends Controller
      */
     public function store(StorePackageTourRequest $request)
     {
-        //
-        DB::transaction(function() use ($request) {
+            DB::transaction(function () use ($request) {
             $validated = $request->validated();
 
-            if($request->hasFile('thumbnail')){
-                $thumbnailPath = 
-                $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
+
+            if ($request->hasFile('thumbnail')) {
+                $thumbnailPath =
+                    $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
+                $validated['thumbnail'] = $thumbnailPath;
             }
 
-            dd('data berhasil masuk');
+            // $validated['slug'] = Str::slug($validated['name']);
 
-            $validated['slug'] = Str::slug($validated['name']);
-            
             $packageTour = PackageTour::create($validated);
 
-            if($request->hasFile('photos')){
-                foreach($request->file('photos') as $photo){
-                    $photoPath = $photo->store('package_photos/' . date('Y/m/d'), 'public');
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $photoPath =  $photo->store('package_photos/' . date('Y/m/d'), 'public');
                     $packageTour->package_photos()->create([
                         'photo' => $photoPath
                     ]);
                 }
-            }
+            };
         });
 
         return redirect()->route('admin.package_tours.index')->with('success', 'Tour berhasil ditambahkan.');
-
     }
 
     /**
@@ -72,7 +71,7 @@ class PackageTourController extends Controller
     {
         //
         $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
-        return view('admin.package_tours.show', compact('packageTour', 'lastestPhotos'));
+        return view('admin.package_tours.show', compact('packageTour', 'latestPhotos'));
     }
 
     /**
@@ -83,7 +82,7 @@ class PackageTourController extends Controller
         //
         $categories = Category::orderbyDesc('id')->get();
         $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
-        return view('admin.package_tours.edit', compact('packageTour', 'lastestPhotos'));
+        return view('admin.package_tours.edit', compact('packageTour', 'latestPhotos', 'categories'));
     }
 
     /**
@@ -99,8 +98,6 @@ class PackageTourController extends Controller
                 $thumbnailPath = 
                 $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
             }
-
-            dd('data berhasil masuk');
 
             $validated['slug'] = Str::slug($validated['name']);
             
