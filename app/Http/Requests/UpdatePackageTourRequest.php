@@ -23,7 +23,7 @@ class UpdatePackageTourRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'integer', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'thumbnail' => ['required', 'image', 'mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'integer',],

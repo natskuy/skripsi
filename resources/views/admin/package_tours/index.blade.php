@@ -25,7 +25,7 @@
                                 {{$tour->name}}
                             </h3>
                             <p class="text-slate-500 text-sm">
-                                {{$tour->category->name}}
+                                {{ $tour->category?->name ?? '-' }}
                             </p>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                         </h3>
                     </div>
                     <div class="hidden md:flex flex-col">
-                        <p class="text-slate-500 text-sm">Total Days</p>
-                        <h3 class="text-indigo-950 text-xl font-bold">{{$tour->days}} Days</h3>
+                        <p class="text-slate-500 text-sm">Total Stock</p>
+                        <h3 class="text-indigo-950 text-xl font-bold">{{$tour->days}} Stock</h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">
                         <a href="{{route('admin.package_tours.show', $tour)}}"

@@ -35,12 +35,12 @@
 
                     <x-nav-link :href="route('admin.package_tours.index')"
                         :active="request()->routeIs('admin.package_tours.index')">
-                        {{ __('Package Tours') }}
+                        {{ __('Product') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('admin.package_bookings.index')"
                         :active="request()->routeIs('admin.package_bookings.index')">
-                        {{ __('Package Bookings') }}
+                        {{ __('Bookings') }}
                     </x-nav-link>
                 </div>
                 @endrole
@@ -138,7 +138,7 @@
     </div>
 
     <!-- Responsive Settings Options -->
-    <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+    <!-- <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
         <div class="px-4">
             <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
             <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
@@ -147,10 +147,10 @@
         <div class="mt-3 space-y-1">
             <x-responsive-nav-link :href="route('profile.edit')">
                 {{ __('Profile') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> -->
 
-            <!-- Authentication -->
-            <form method="POST" action="{{ route('logout') }}">
+    <!-- Authentication -->
+    <!-- <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
                 <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
@@ -160,5 +160,5 @@
             </form>
         </div>
     </div>
-    </div>
+    </div> -->
 </nav>

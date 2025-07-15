@@ -47,7 +47,7 @@ class PackageTourController extends Controller
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            // $validated['slug'] = Str::slug($validated['name']);
+            $validated['slug'] = Str::slug($validated['name']);
 
             $packageTour = PackageTour::create($validated);
 
@@ -97,6 +97,7 @@ class PackageTourController extends Controller
             if($request->hasFile('thumbnail')){
                 $thumbnailPath = 
                 $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
+                $validated['thumbnail'] = $thumbnailPath;
             }
 
             $validated['slug'] = Str::slug($validated['name']);
