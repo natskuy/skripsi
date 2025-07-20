@@ -54,8 +54,8 @@ class FrontController extends Controller
 
             $validated['end_date'] = $endDate;
             $validated['user_id'] = $user->id;
-            $validated['ispaid'] = false;
-            $validated['prof'] = 'dummytrx.png';
+            $validated['is_paid'] = false;
+            $validated['proof'] = 'dummytrx.png';
             $validated['package_tour_id'] = $packageTour->id;
             $validated['package_bank_id'] = $bank->id;
             $validated['insurance'] = $insurance;
@@ -64,6 +64,7 @@ class FrontController extends Controller
             $validated['total_amount'] = $sub_total + $tax + $insurance;
 
             $packageBooking = PackageBooking::create($validated);
+            abort(500, json_encode($request->all()));
 
             $packageBookingId = $packageBooking->id;
         });

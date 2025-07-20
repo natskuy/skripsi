@@ -12,7 +12,7 @@
 <body class="font-poppins text-black">
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-[120px]">
         <nav class="mt-8 px-4 w-full flex items-center justify-between">
-            <a href="home.html">
+            <a href="{{route('front.index')}}">
                 <img src="{{asset('assets/icons/back.png')}}" alt="back">
             </a>
             <p class="text-center m-auto font-semibold">Detail</p>
@@ -28,8 +28,8 @@
             <div class="grid grid-cols-4 gap-4 w-fit mx-auto">
                 <a href="{{Storage::url($packageTour->thumbnail)}}"
                     class="thumbnail-option w-[74px] h-[74px] flex shrink-0 rounded-xl border-2 overflow-hidden mx-auto border-blue">
-                    <img src="{{Storage::url($packageTour->thumbnail)}}" class="w-full h-full object-cover object-center"
-                        alt="thumbnail">
+                    <img src="{{Storage::url($packageTour->thumbnail)}}"
+                        class="w-full h-full object-cover object-center" alt="thumbnail">
                 </a>
                 @foreach($latestPhotos as $photo)
                 <a href="{{Storage::url($photo->photo)}}"
@@ -48,7 +48,8 @@
             <div class="flex justify-between gap-2">
                 <div class="flex items-center gap-2">
                     <div class="w-6 h-6 flex items-center shrink-0">
-                        <img src="{{asset('assets/icons/location-map.svg')}}" class="w-full h-full object-contain" alt="icon">
+                        <img src="{{asset('assets/icons/location-map.svg')}}" class="w-full h-full object-contain"
+                            alt="icon">
                     </div>
                     <div class="flex flex-col gap-1">
                         <p class="text-sm leading-[22px] tracking-[0.35px] text-darkGrey">Lokasi</p>
@@ -92,8 +93,8 @@
                     <div class="flex items-center gap-1">
                         <div
                             class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008]">
-                            <img src="{{asset('assets/photos/pfp2.png')}}" class="w-full h-full object-cover object-center"
-                                alt="photo">
+                            <img src="{{asset('assets/photos/pfp2.png')}}"
+                                class="w-full h-full object-cover object-center" alt="photo">
                         </div>
                         <div class="flex flex-col gap-1">
                             <p class="font-bold text-sm leading-[22px] tracking-035">James Sullivan</p>
@@ -119,18 +120,18 @@
                     <div class="flex items-center">
                         <div
                             class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008] -ml-2 first-of-type:-ml-1">
-                            <img src="{{asset('assets/photos/pfp2.png')}}" class="w-full h-full object-cover object-center"
-                                alt="photo">
+                            <img src="{{asset('assets/photos/pfp2.png')}}"
+                                class="w-full h-full object-cover object-center" alt="photo">
                         </div>
                         <div
                             class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008] -ml-2 first-of-type:-ml-1">
-                            <img src="{{asset('assets/photos/pfp3.png')}}" class="w-full h-full object-cover object-center"
-                                alt="photo">
+                            <img src="{{asset('assets/photos/pfp3.png')}}"
+                                class="w-full h-full object-cover object-center" alt="photo">
                         </div>
                         <div
                             class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008] -ml-2 first-of-type:-ml-1">
-                            <img src="{{asset('assets/photos/pfp4.png')}}" class="w-full h-full object-cover object-center"
-                                alt="photo">
+                            <img src="{{asset('assets/photos/pfp4.png')}}"
+                                class="w-full h-full object-cover object-center" alt="photo">
                         </div>
                     </div>
                 </div>
@@ -142,12 +143,12 @@
                                 class="w-full h-full object-cover object-center" alt="thumbnail">
                         </div>
                         <div class="w-12 h-12 flex shrink-0 rounded-lg overflow-hidden relative">
-                            <img src="{{asset('assets/thumbnails/kemeja-garis1.jpeg')}}" class="w-full h-full object-cover object-center"
-                                alt="thumbnail">
+                            <img src="{{asset('assets/thumbnails/kemeja-garis1.jpeg')}}"
+                                class="w-full h-full object-cover object-center" alt="thumbnail">
                         </div>
                         <div class="w-12 h-12 flex shrink-0 rounded-lg overflow-hidden relative">
-                            <img src="{{asset('assets/thumbnails/kemeja-garis2.jpeg')}}" class="w-full h-full object-cover object-center"
-                                alt="thumbnail">
+                            <img src="{{asset('assets/thumbnails/kemeja-garis2.jpeg')}}"
+                                class="w-full h-full object-cover object-center" alt="thumbnail">
                             <div class="w-12 h-12 flex items-center justify-center bg-[#1c273080] absolute">
                                 <span class="font-semibold text-white">3+</span>
                             </div>
@@ -166,10 +167,11 @@
             class="navigation-bar fixed bottom-0 z-50 max-w-[640px] w-full h-[85px] bg-white rounded-t-[25px] flex items-center justify-between px-6">
             <div class="flex flex-col justify-center gap-1">
                 <p class="text-darkGrey text-sm tracking-035 leading-[22px]">Total Price</p>
-                <p class="text-blue font-semibold text-lg leading-[26px] tracking-[0.6px]">Rp 90.000<span
+                <p class="text-blue font-semibold text-lg leading-[26px] tracking-[0.6px]">Rp
+                    {{number_format($packageTour->price, 0, ',', '.')}}<span
                         class="font-normal text-sx leading-[20px] tracking-035 text-darkGrey">/pcs</span></p>
             </div>
-            <a href="booking.html"
+            <a href="{{route('front.book', $packageTour->slug)}}"
                 class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book
                 Now</a>
         </div>
