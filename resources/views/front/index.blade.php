@@ -18,8 +18,7 @@
                 @auth
                 <div
                     class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008]">
-                    <img src="{{Storage::url(Auth::user()->avatar)}}" class="w-full h-full object-cover object-center"
-                        alt="photo">
+                    <img src="{{Storage::url(Auth::user()->avatar)}}" class="w-full h-full object-cover object-center" alt="photo">
                 </div>
                 <div class="flex flex-col gap-1">
                     <p class="text-xs tracking-035">Welcome!</p>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="flex flex-col gap-1">
                     <p class="text-xs tracking-035">Welcome!</p>
-                    <p class="font-semibold">Siap Jalan-Jalan?</p>
+                    <p class="font-semibold">Siap Berbelanja?</p>
                 </div>
                 @endguest
             </div>
@@ -53,46 +52,46 @@
                     <div
                         class="p-3 flex items-center gap-2 rounded-[10px] border border-[#4D73FF] group-hover:bg-[#4D73FF] transition-all duration-300">
                         <div class="w-6 h-6 flex shrink-0">
-                            <img src="assets/icons/umbrella.svg" alt="icon">
+                            <img src="assets/icons/baju.jpeg" alt="icon">
                         </div>
                         <span
-                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Beach</span>
+                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Baju</span>
                     </div>
                 </a>
                 <a href="category.html" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
                     <div
                         class="p-3 flex items-center gap-2 rounded-[10px] border border-[#4D73FF] group-hover:bg-[#4D73FF] transition-all duration-300">
                         <div class="w-6 h-6 flex shrink-0">
-                            <img src="assets/icons/mountain.svg" alt="icon">
+                            <img src="assets/icons/celana.jpeg" alt="icon">
                         </div>
                         <span
-                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Mountain</span>
+                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Celana</span>
                     </div>
                 </a>
                 <a href="category.html" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
                     <div
                         class="p-3 flex items-center gap-2 rounded-[10px] border border-[#4D73FF] group-hover:bg-[#4D73FF] transition-all duration-300">
                         <div class="w-6 h-6 flex shrink-0">
-                            <img src="assets/icons/tent.svg" alt="icon">
+                            <img src="assets/icons/rok.jpeg" alt="icon">
                         </div>
                         <span
-                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Nature</span>
+                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Rok</span>
                     </div>
                 </a>
                 <a href="category.html" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
                     <div
                         class="p-3 flex items-center gap-2 rounded-[10px] border border-[#4D73FF] group-hover:bg-[#4D73FF] transition-all duration-300">
                         <div class="w-6 h-6 flex shrink-0">
-                            <img src="assets/icons/historical.svg" alt="icon">
+                            <img src="assets/icons/kemeja.jpeg" alt="icon">
                         </div>
                         <span
-                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Historical</span>
+                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Formal</span>
                     </div>
                 </a>
             </div>
         </div>
         <div id="recommendations" class="flex flex-col gap-3">
-            <h2 class="font-semibold px-4">Trip Recommendation</h2>
+            <h2 class="font-semibold px-4">Product Recommendation</h2>
             <div class="main-carousel card-container">
                 @forelse($package_tours as $tour)
                 <a href="{{route('front.details', $tour->slug)}}"

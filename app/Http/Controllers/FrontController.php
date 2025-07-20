@@ -16,32 +16,26 @@ use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
-   public function index()
-    {
+   public function index(){
         $categories = Category::orderByDesc('id')->get();
         $package_tours = PackageTour::orderByDesc('id')->take(3)->get();
         return view('front.index', compact('package_tours', 'categories'));
     }
 
-    public function category(Category $category)
-    {
+    public function category(Category $category){
         return view('front.category', compact('category'));
     }
 
-    public function details(PackageTour $packageTour)
-    {
+    public function details(PackageTour $packageTour){
         $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
-
         return view('front.details', compact('packageTour', 'latestPhotos'));
     }
 
-    public function book(PackageTour $packageTour)
-    {
+    public function book(PackageTour $packageTour){
         return view('front.book', compact('packageTour'));
     }
 
-    public function book_store(StorePackageBookingRequest $request, PackageTour $packageTour)
-    {
+    public function book_store(StorePackageBookingRequest $request, PackageTour $packageTour){
         $user = Auth::user();
         $bank = PackageBank::orderByDesc('id')->first();
         $packageBookingId = null;

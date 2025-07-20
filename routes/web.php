@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\PackageBankController;
-use App\Http\Controllers\PackageBookController;
 use App\Http\Controllers\PackageTourController;
 use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
