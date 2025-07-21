@@ -85,7 +85,7 @@
                             <img src="assets/icons/kemeja.jpeg" alt="icon">
                         </div>
                         <span
-                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Formal</span>
+                            class="text-sm tracking-[0.35px] text-[#4D73FF] group-hover:text-white transition-all duration-300">Kemeja</span>
                     </div>
                 </a>
             </div>
@@ -99,7 +99,7 @@
                     <div
                         class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
                         <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
-                            <img src="{{ Storage::url($tour->thumbnail) }}" class="w-full h-full object-cover"
+                            <img src="{{Storage::url($tour->thumbnail)}}" class="w-full h-full object-cover"
                                 alt="thumbnails">
                         </div>
                         <div class="flex justify-between gap-2">
@@ -109,14 +109,14 @@
                                     <div class="w-4 h-4 flex shrink-0">
                                         <img src="assets/icons/location-map.svg" alt="icon">
                                     </div>
-                                    <span class="text-sm text-darkGrey tracking-035">{{ $tour->location}}</span>
+                                    <span class="text-sm text-darkGrey tracking-035">{{$tour->location}}</span>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-1 text-right">
                                 <p class="text-sm leading-[21px]">
                                     <span class="font-semibold text-[#4D73FF] text-nowrap">Rp
                                         {{number_format($tour->price, 0, ',', '.')}}</span><br>
-                                    <span class="text-darkGrey">{{ $tour->days }} Stock</span>
+                                    <span class="text-darkGrey">{{$tour->days}}Stock</span>
                                 </p>
                                 <div class="flex items-center gap-1 justify-end">
                                     <div class="w-4 h-4 flex shrink-0">
@@ -147,26 +147,27 @@
         </div>
         <div id="explore" class="flex flex-col px-4 gap-3">
             <h2 class="font-semibold">More to Explore</h2>
-            <a href="details.html" class="card">
+            <a href="{{route('front.details', $tour->slug)}}" class="card">
                 <div class="bg-white p-4 flex flex-col gap-3 rounded-[26px] shadow-[6px_8px_20px_0_#00000008]">
                     <div class="w-full h-full aspect-[311/150] rounded-xl overflow-hidden">
-                        <img src="assets/thumbnails/castle.jpg" class="w-full h-full object-cover object-center"
+                        <img src="{{Storage::url($tour->thumbnail)}}" class="w-full h-full object-cover object-center"
                             alt="thumbnail">
                     </div>
                     <div class="flex justify-between gap-2">
                         <div class="flex flex-col gap-1">
-                            <p class="font-semibold two-lines">Fortress Osaka Castle Park</p>
+                            <p class="font-semibold two-lines">{{$tour->name}}</p>
                             <div class="flex items-center gap-1">
                                 <div class="w-4 h-4 flex shrink-0">
                                     <img src="assets/icons/location-map.svg" alt="icon">
                                 </div>
-                                <span class="text-sm text-darkGrey tracking-035">Osaka, Japan</span>
+                                <span class="text-sm text-darkGrey tracking-035">{{$tour->location}}</span>
                             </div>
                         </div>
                         <div class="flex flex-col gap-1 text-right">
                             <p class="text-sm leading-[21px]">
-                                <span class="font-semibold text-[#4D73FF] text-nowrap">Rp 25.000.000</span><br>
-                                <span class="text-darkGrey">/10days</span>
+                                <span class="font-semibold text-[#4D73FF] text-nowrap">Rp
+                                        {{number_format($tour->price, 0, ',', '.')}}</span><br>
+                                <span class="text-darkGrey">{{$tour->days}} Stock</span>
                             </p>
                             <div class="flex items-center gap-1 justify-end">
                                 <div class="w-4 h-4 flex shrink-0">
@@ -178,7 +179,7 @@
                     </div>
                 </div>
             </a>
-            <a href="details.html" class="card">
+            <a href="{{route('front.details', $tour->slug)}}" class="card">
                 <div class="bg-white p-4 flex flex-col gap-3 rounded-[26px] shadow-[6px_8px_20px_0_#00000008]">
                     <div class="w-full h-full aspect-[311/150] rounded-xl overflow-hidden">
                         <img src="assets/thumbnails/santorini.jpg" class="w-full h-full object-cover object-center"
@@ -209,7 +210,7 @@
                     </div>
                 </div>
             </a>
-            <a href="details.html" class="card">
+            <a href="{{route('front.details', $tour->slug)}}" class="card">
                 <div class="bg-white p-4 flex flex-col gap-3 rounded-[26px] shadow-[6px_8px_20px_0_#00000008]">
                     <div class="w-full h-full aspect-[311/150] rounded-xl overflow-hidden">
                         <img src="assets/thumbnails/athena.jpg" class="w-full h-full object-cover object-center"

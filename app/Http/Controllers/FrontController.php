@@ -49,8 +49,8 @@ class FrontController extends Controller
             $endDate = $startDate->addDays($totalDays);
 
             $sub_total = $packageTour->price * $validated['quantity'];
-            $insurance = 300000 * $validated['quantity'];
-            $tax = $sub_total * 0.10;
+            $validated['sub_total'] = $sub_total;
+            $validated['total_amount'] = $sub_total;
 
             $validated['end_date'] = $endDate;
             $validated['user_id'] = $user->id;
@@ -58,14 +58,9 @@ class FrontController extends Controller
             $validated['proof'] = 'dummytrx.png';
             $validated['package_tour_id'] = $packageTour->id;
             $validated['package_bank_id'] = $bank->id;
-            $validated['insurance'] = $insurance;
-            $validated['tax'] = $tax;
             $validated['sub_total'] = $sub_total;
-            $validated['total_amount'] = $sub_total + $tax + $insurance;
 
             $packageBooking = PackageBooking::create($validated);
-            abort(500, json_encode($request->all()));
-
             $packageBookingId = $packageBooking->id;
         });
 

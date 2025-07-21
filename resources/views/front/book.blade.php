@@ -22,8 +22,7 @@
             @csrf
             <div class="flex flex-col gap-3 px-4 ">
                 <p class="font-semibold">Start Date</p>
-                <div
-                    class="flex items-center gap-[10px] bg-white p-[16px_24px] rounded-[37px]  transition-all duration-300">
+                <div class="flex items-center gap-[10px] bg-white p-[16px_24px] rounded-[37px]  transition-all duration-300">
                     <input type="date" name="start_date" id="start_date"
                         class="appearance-none outline-none w-full relative text-sm tracking-035 leading-[22px] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:opacity-0">
                     <div class="w-6 h-6 flex shrink-0">
@@ -50,7 +49,7 @@
                     </div>
                     <div class="flex flex-1 items-center justify-end gap-2">
                         <button type="button" id="remove-quantity"><img src="{{asset('assets/icons/minus-square.svg')}}"
-                                alt="icon"></button>
+                        alt="icon"></button>
                         <p id="quantity" class="font-semibold text-sm">1</p>
                         <input type="hidden" name="quantity" id="quantity_input" value="1" />
                         <input type="hidden" name="packageTourPrice" id="packageTourPrice"
@@ -83,14 +82,6 @@
                     <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                         <p>Sub Total</p>
                         <p id="subtotal" class="font-semibold text-blue"></p>
-                    </div>
-                    <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
-                        <p>Insurance <span class="text-darkGrey">x<span id="total_quantity"></span></span></p>
-                        <p id="insurance" class="font-semibold text-blue"></p>
-                    </div>
-                    <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
-                        <p>Tax 1%</p>
-                        <p id="tax" class="font-semibold text-blue"></p>
                     </div>
                 </div>
             </div>
